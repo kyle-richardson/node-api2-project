@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
         .catch(err=> {
             res.status(500).json({ message: 'failure', error: 'Server failed to retrieve posts'})
         })
-    // res.status(200).send('hello from the GET /api/posts endpoint');
 });
 
 router.get('/:id', (req, res) => {
@@ -25,7 +24,6 @@ router.get('/:id', (req, res) => {
         .catch(err=> {
             res.status(500).json({ message: 'failure', error: 'Server failed to retrieve post'})
         })
-    // res.status(200).send('hello from the GET /api/posts/:id endpoint');
 });
 
 router.get('/:id/comments', (req, res) => {
@@ -43,8 +41,7 @@ router.get('/:id/comments', (req, res) => {
             }
             else res.status(400).json({ message: 'failure', error: `Could not find post with ID ${id}`})
         })
-    
-    // res.status(200).send('hello from the GET /api/posts/:id/comments endpoint');
+
 });
 
 router.post('/', (req, res) => {
@@ -66,7 +63,6 @@ router.post('/', (req, res) => {
             .catch(err=> {
                 res.status(500).json({ message: 'failure', error: 'Server failed to insert new post'})
             })
-    // res.status(200).send('hello from the POST /api/posts endpoint');
 });
 
 router.post('/:id/comments', (req, res) => {
@@ -92,8 +88,7 @@ router.post('/:id/comments', (req, res) => {
                 }
                 else res.status(400).json({ message: 'failure', error: `Could not find post with ID ${id}`})
             })
-    
-    // res.status(200).send('hello from the POST /api/posts/:id/comments endpoint');
+
 });
 
 router.delete('/:id', (req, res) => {
@@ -111,7 +106,6 @@ router.delete('/:id', (req, res) => {
             }
             else res.status(400).json({ message: 'failure', error: `Could not find post with ID ${id}`})
         })
-    // res.status(200).send('hello from the DELETE /api/posts/:id endpoint');
 });
 
 router.put('/:id', (req, res) => {
@@ -145,7 +139,6 @@ router.put('/:id', (req, res) => {
                 }
                 else res.status(400).json({ message: 'failure', error: `Could not find post with ID ${id}`})
             })
-    // res.status(200).send('hello from the PUT /api/posts/:id endpoint');
 });
 
 module.exports = router; 
