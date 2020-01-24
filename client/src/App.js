@@ -42,14 +42,14 @@ function App() {
   useEffect(()=> {
     const comments = []
     axios
-      .get('http://localhost:8000/api/posts')
+      .get('https://api-project-2.herokuapp.com/api/posts')
       .then(res=> {
         setPostList(res.data.post_list)
         return res.data.post_list
       })
       .then(res=> {
         res.map(post=> {
-          axios.get(`http://localhost:8000/api/posts/${post.id}/comments`)
+          axios.get(`https://api-project-2.herokuapp.com/api/posts/${post.id}/comments`)
             .then(res=> {
               console.log(res.data)
               comments.push(res.data.comment_list)
@@ -92,7 +92,7 @@ function App() {
               cursor: 'pointer',
               textAlign: 'center'
             }} onClick={()=>{
-              axios.delete(`http://localhost:8000/api/posts/${post.id}`)
+              axios.delete(`https://api-project-2.herokuapp.com/api/posts/${post.id}`)
                 .then(res=> {
                   setUpdate(!update)
                 })
@@ -107,7 +107,7 @@ function App() {
               cursor: 'pointer',
               textAlign: 'center'
             }} onClick={()=>{
-              axios.put(`http://localhost:8000/api/posts/${post.id}`, editedPost)
+              axios.put(`https://api-project-2.herokuapp.com/api/posts/${post.id}`, editedPost)
               .then(res=> {
                 setUpdate(!update)
               })
@@ -141,7 +141,7 @@ function App() {
         cursor: 'pointer',
         textAlign: 'center'
       }} onClick={()=> {
-        axios.post(`http://localhost:8000/api/posts`, newPost)
+        axios.post(`https://api-project-2.herokuapp.com/api/posts`, newPost)
         .then(res=> {
           setUpdate(!update)
         })
