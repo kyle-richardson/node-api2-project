@@ -1,11 +1,11 @@
 const express = require('express');
 const cors = require('cors')
-
 const postsRoutes = require('./routers/postsRoutes');
-
 const server = express();
+const port = process.env.PORT || 8000
+
 server.use(cors())
 
 server.use('/api/posts', postsRoutes);
 
-server.listen(8000, () => console.log('API running on port 8000'));
+server.listen(port, () => console.log(`API running on port ${port}`));
