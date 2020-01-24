@@ -38,6 +38,7 @@ function App() {
     return commentList.find(ele=>id===ele.post_id)
   }
   
+  
 
   useEffect(()=> {
     const comments = []
